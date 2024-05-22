@@ -20,6 +20,7 @@
     "@backstage/core-app-api": "^1.12.5",
     "@backstage/core-components": "^0.14.7",
     "@backstage/core-plugin-api": "^1.9.2",
+    "@backstage/frontend-app-api": "^0.7.0",
     "@backstage/integration-react": "^1.1.27",
     "@backstage/plugin-api-docs": "^0.11.5",
     "@backstage/plugin-catalog": "^1.20.0",
@@ -37,6 +38,7 @@
     "@backstage/plugin-techdocs-react": "^1.2.4",
     "@backstage/plugin-user-settings": "^0.8.6",
     "@backstage/theme": "^0.5.4",
+    "@internal/backstage-plugin-skillswap": "^0.1.0",
     "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.9.1",
     "history": "^5.0.0",
@@ -49,10 +51,10 @@
   "devDependencies": {
     "@backstage/test-utils": "^1.5.5",
     "@playwright/test": "^1.32.3",
+    "@testing-library/dom": "^9.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.0.0",
-    "@testing-library/dom": "^9.0.0",
     "@types/react-dom": "*",
     "cross-env": "^7.0.0"
   },
