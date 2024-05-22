@@ -1,4 +1,5 @@
 import { getVoidLogger } from '@backstage/backend-common';
+import { TestDatabases, mockServices } from '@backstage/backend-test-utils';
 import express from 'express';
 import request from 'supertest';
 
@@ -8,9 +9,16 @@ describe('createRouter', () => {
   let app: express.Express;
 
   beforeAll(async () => {
+    const databaseClient = await TestDatabases.create().init('POSTGRES_16');
+
     const router = await createRouter({
       logger: getVoidLogger(),
+      databaseClient,
+      discovery: mockServices.discovery(),
+      httpAuth: mockServices.httpAuth(),
+      userInfo: mockServices.userInfo(),
     });
+    
     app = express().use(router);
   });
 

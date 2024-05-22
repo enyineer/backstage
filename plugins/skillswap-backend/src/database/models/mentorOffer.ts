@@ -1,5 +1,4 @@
 import { Model, ModelObject } from 'objection';
-import { MentorOfferTopicModel } from './mentorOfferTopic';
 
 export class MentorOfferModel extends Model {
   static get tableName() {
@@ -10,9 +9,11 @@ export class MentorOfferModel extends Model {
   author_ref: string;
   title: string;
   description: string;
-  topics: MentorOfferTopicModel[];
+  // topics: MentorOfferTopicModel[];
 
   static get relationMappings() {
+    const MentorOfferTopicModel = require('./mentorOfferTopic');
+    
     return {
       topics: {
         relation: Model.ManyToManyRelation,

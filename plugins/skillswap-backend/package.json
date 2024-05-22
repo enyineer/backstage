@@ -26,6 +26,7 @@
     "@backstage/backend-common": "^0.22.0",
     "@backstage/backend-defaults": "^0.2.18",
     "@backstage/backend-plugin-api": "^0.6.18",
+    "@backstage/backend-test-utils": "^0.3.8",
     "@backstage/config": "^1.2.0",
     "@backstage/plugin-catalog-backend": "^1.22.0",
     "@types/express": "*",

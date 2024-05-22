@@ -1,5 +1,4 @@
 import { Model, ModelObject } from 'objection';
-import { HackOfferMeetingModel } from './hackOfferMeetings';
 
 export enum HackOfferMeetingAttendeeStatus {
   PENDING = 'PENDING',
@@ -15,15 +14,18 @@ export class HackOfferMeetingAttendeeModel extends Model {
   id: string;
   attendee_ref: string;
   status: HackOfferMeetingAttendeeStatus;
-  hack_offer_meeting: HackOfferMeetingModel;
+  // hack_offer_meeting: HackOfferMeetingModel;
 
-  static relationMappings = {
-    hack_offer_meeting: {
-      relation: Model.BelongsToOneRelation,
-      modelClass: HackOfferMeetingModel,
-      join: {
-        from: 'hack_offer_meeting_attendees.hack_offer_meeting_id',
-        to: 'hack_offer_meetings.id'
+  static get relationMappings() {
+    const HackOfferMeetingModel = require('./hackOfferMeeting');
+    return {
+      hack_offer_meeting: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: HackOfferMeetingModel,
+        join: {
+          from: 'hack_offer_meeting_attendees.hack_offer_meeting_id',
+          to: 'hack_offer_meetings.id'
+        }
       }
     }
   };

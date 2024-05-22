@@ -1,5 +1,4 @@
 import { Model, ModelObject } from 'objection';
-import { HackOfferTopicModel } from './hackOfferTopic';
 
 export enum HackOfferLevel {
   BEGINNER = 'BEGINNER',
@@ -17,9 +16,10 @@ export class HackOfferModel extends Model {
   title: string;
   description: string;
   level: HackOfferLevel;
-  offers: HackOfferTopicModel[];
+  // offers: HackOfferTopicModel[];
 
   static get relationMappings() {
+    const HackOfferTopicModel = require('./hackOfferTopic');
     return {
       offers: {
         relation: Model.ManyToManyRelation,

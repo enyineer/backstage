@@ -1,5 +1,4 @@
 import { Model, ModelObject } from 'objection';
-import { HackOfferModel } from './hackOffer';
 
 export class HackOfferMeetingModel extends Model {
   static get tableName() {
@@ -10,15 +9,18 @@ export class HackOfferMeetingModel extends Model {
   start_date: Date;
   end_date: Date;
   location: string;
-  hack_offer: HackOfferModel;
+  // hack_offer: HackOfferModel;
 
-  static relationMappings = {
-    hack_offer: {
-      relation: Model.BelongsToOneRelation,
-      modelClass: HackOfferModel,
-      join: {
-        from: 'hack_offer_meetings.hack_offer_id',
-        to: 'hack_offers.id'
+  static get relationMappings() {
+    const HackOfferModel = require('./hackOffer');
+    return {
+      hack_offer: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: HackOfferModel,
+        join: {
+          from: 'hack_offer_meetings.hack_offer_id',
+          to: 'hack_offers.id'
+        }
       }
     }
   };

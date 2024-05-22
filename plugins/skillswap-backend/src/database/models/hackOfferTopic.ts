@@ -1,5 +1,4 @@
 import { Model, ModelObject } from 'objection';
-import { HackOfferModel } from './hackOffer';
 
 export class HackOfferTopicModel extends Model {
   static get tableName() {
@@ -8,9 +7,11 @@ export class HackOfferTopicModel extends Model {
 
   id: string;
   topic: string;
-  offers: HackOfferModel[];
+  // offers: HackOfferModel[];
 
   static get relationMappings() {
+    const HackOfferModel = require('./hackOffer');
+
     return {
       offers: {
         relation: Model.ManyToManyRelation,
