@@ -5,7 +5,7 @@ import { resolvePackagePath } from '@backstage/backend-plugin-api';
 
 export async function applyDatabaseMigrations(knex: Knex): Promise<void> {
   const migrationsDir = resolvePackagePath(
-    '@internal/plugin-skillswap-backend',
+    '@internal/backstage-plugin-skillswap-backend',
     'migrations',
   );
 
